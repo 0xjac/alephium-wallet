@@ -53,12 +53,21 @@ export interface Settings {
   explorerUrl: string
 }
 
-export function settingsDefault(): Settings {
-  return {
+export const Networks = {
+  testnet: {
     nodeHost: 'https://testnet-wallet.alephium.org',
     explorerApiHost: 'https://testnet-backend.alephium.org',
     explorerUrl: 'https://testnet.alephium.org'
+  },
+  mainnet: {
+    nodeHost: 'https://mainnet-wallet.alephium.org',
+    explorerApiHost: 'https://mainnet-backend.alephium.org',
+    explorerUrl: 'https://explorer.alephium.org'
   }
+}
+
+export function settingsDefault(): Settings {
+  return Networks.testnet
 }
 
 export function loadSettings(): Settings | null {
